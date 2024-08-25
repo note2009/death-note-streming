@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Note - Episode 35</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { margin: 0; padding: 0; background-color: #111; font-family: 'Arial', sans-serif; color: white; }
+        .container { max-width: 900px; margin: 50px auto; padding: 20px; background-color: #222; border-radius: 15px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); }
+        h1 { font-size: 2.5rem; color: #fff; }
+        h1 span { color: #007bff; }
+        .episode-selector { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+        .episode-navigation { display: flex; align-items: center; }
+        .episode-navigation button { background-color: #007bff; color: white; border: none; border-radius: 10%; padding: 15px; font-size: 1.5rem; cursor: pointer; margin: 0 5px; display: flex; align-items: center; justify-content: center; }
+        .episode-navigation button:disabled { background-color: #555; cursor: not-allowed; }
+        .episode-navigation .fa { margin: 0; }
+        .episode-selector select { width: 100%; max-width: 300px; padding: 10px; border: none; border-radius: 5px; background-color: #333; color: white; font-size: 1.2rem; }
+        .episode-image { text-align: center; margin: 20px 0; }
+        .episode-image iframe { width: 100%; border-radius: 10px; }
+        .watch-buttons { display: flex; justify-content: space-around; margin-top: 20px; }
+        .watch-buttons button { background-color: #007bff; color: white; padding: 15px 30px; font-size: 1.2rem; font-family: 'Comic Sans MS', 'Comic Sans', cursive; border: none; border-radius: 10px; cursor: pointer; }
+        .watch-buttons button:hover { background-color: #0056b3; }
+        .synopsis { background-color: #333; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .synopsis h2 { color: white; font-size: 1.5rem; margin-bottom: 15px; }
+        .synopsis p { color: #ddd; font-size: 1rem; line-height: 1.8; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Death Note <span>Saison 1</span></h1>
+
+        <div class="episode-selector">
+            <div class="episode-navigation">
+                <button id="prev-episode"><i class="fas fa-chevron-left"></i></button>
+            </div>
+            <select id="episode">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35"selected>35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+            </select>
+            <div class="episode-navigation">
+                <button id="next-episode"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div class="episode-image">
+            <iframe width="640" height="360" src="https://video.sibnet.ru/shell.php?videoid=4745165&share=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="watch-buttons">
+            <button>VOSTFR</button>
+            <button>VF</button>
+        </div>
+
+        <div class="synopsis">
+            <h2>Résumé de l'épisode 35</h2>
+            <p>
+                Near veut rencontrer Light. Mello enlève Kiyomi avec l'aide de Matt, un de ses amis d'enfance, abattu plus tard par un garde du corps un peu trop entreprenant de Kiyomi. Celle-ci utilise un morceau du Death Note pour tuer Mello. Takada est tuée plus tard par Light, ou du moins c'est ce qu'il croit.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const episodeSelector = document.getElementById("episode");
+            const previousButton = document.getElementById("prev-episode");
+            const nextButton = document.getElementById("next-episode");
+
+            const totalEpisodes = 37;
+            let currentEpisode = 35;
+
+            episodeSelector.addEventListener("change", function () {
+                const selectedEpisode = parseInt(this.value);
+                window.location.href = `episode${selectedEpisode}.html`;
+            });
+
+            function updateNavigationButtons() {
+                previousButton.disabled = currentEpisode === 1;
+                nextButton.disabled = currentEpisode === totalEpisodes;
+            }
+
+            previousButton.addEventListener("click", function () {
+                if (currentEpisode > 1) {
+                    currentEpisode--;
+                    window.location.href = `episode${currentEpisode}.html`;
+                }
+            });
+
+            nextButton.addEventListener("click", function () {
+                if (currentEpisode < totalEpisodes) {
+                    currentEpisode++;
+                    window.location.href = `episode${currentEpisode}.html`;
+                }
+            });
+
+            updateNavigationButtons();
+        });
+    </script>
+
+</body>
+</html>
